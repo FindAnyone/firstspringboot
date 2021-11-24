@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.firstspringboot.mapper.RoomTypeMapper">
+<!-- public Users querMsg(Integer id);-->
+    <select id="querMsg" parameterType="int" resultType="roomtype">
+        select * from room_type where typeid=#{id}
+    </select>
+    <!--public Users insertMsg(Users users);-->
+    <insert id="insertMsg" useGeneratedKeys="true" keyProperty="typeId" keyColumn="typeId" parameterType="RoomType">
+      insert into ROOM_TYPE(typeId,roomTypeName,introduce)
+      values(seq_rtid_roomtype.nextval,#{roomTypeName},#{introduce})
+    </insert>
+    <!--public int updateMsg(RoomType roomType);-->
+    <update id="updateMsg" parameterType="RoomType">
+      update ROOM_TYPE
+      set
+      roomTypeName=#{roomTypeName},
+      introduce=#{introduce}
+      where
+      typeId=#{typeId}
+    </update>
+
+    <delete id="deleteMsg">
+        delete from ROOM_TYPE where typeId=#{id}
+    </delete>
+</mapper>

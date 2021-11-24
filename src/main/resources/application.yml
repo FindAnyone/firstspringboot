@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /first
+##日志输出级别
+logging:
+  level:
+    org.springframework: info
+##spring模板字符集
+spring:
+  freemarker:
+    charset: UTF-8
+## 配置数据源信息
+  datasource:
+    username: scott
+    password: 123
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  ## 配置mapper映射文件路径
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+#  ## 配置扫描实体包，给实体类设置别名
+  type-aliases-package: com.neusoft.firstspringboot.pojo
+
